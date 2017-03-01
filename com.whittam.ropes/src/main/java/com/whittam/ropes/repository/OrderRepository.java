@@ -4,20 +4,20 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.whittam.ropes.model.Inventory;
+import com.whittam.ropes.model.Order;
 
-public interface InventoryRepository extends MongoRepository<Inventory, String> {
+public interface OrderRepository extends MongoRepository<Order, String> {
 
 	// Delete an inventory item
-	void delete(Inventory id);
+	void delete(Order id);
 
 	// List all inventory items in the database
-	List<Inventory> findAll();
+	List<Order> findAll();
 
 	// Find an inventory item by barcode ID
-	Inventory findById(String id);
+	Order findById(String id);
 
 	// Save an inventory item in the database
-	Inventory save(Inventory id);
+	Order save(Order id);
 
 }

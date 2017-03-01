@@ -2,10 +2,11 @@ package com.whittam.ropes.model;
 
 import org.springframework.data.annotation.Id;
 
-public class Inventory {
+public class Order {
 
 	@Id
 	private String id;
+	private String inventoryId;
 	private String title;
 	private int quantity;
 
@@ -15,6 +16,14 @@ public class Inventory {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public String getInventoryId() {
+		return inventoryId;
+	}
+	
+	public void setInventoryId(String inventoryId) {
+		this.inventoryId = inventoryId;
 	}
 
 	public String getTitle() {
