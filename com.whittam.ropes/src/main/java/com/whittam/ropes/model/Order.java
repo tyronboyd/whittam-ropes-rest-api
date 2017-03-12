@@ -6,7 +6,8 @@ public class Order {
 
 	@Id
 	private String id;
-	private String inventoryId;
+	private String barcode;
+	private String itemId;
 	private String title;
 	private int quantity;
 
@@ -18,12 +19,20 @@ public class Order {
 		this.id = id;
 	}
 	
-	public String getInventoryId() {
-		return inventoryId;
+	public String getBarcode() {
+		return barcode;
 	}
 	
-	public void setInventoryId(String inventoryId) {
-		this.inventoryId = inventoryId;
+	public void setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
+	
+	public String getItemId() {
+		return itemId;
+	}
+	
+	public void setItemId(String item_id) {
+		this.itemId = item_id;
 	}
 
 	public String getTitle() {

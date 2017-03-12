@@ -11,21 +11,19 @@ import com.whittam.ropes.repository.OrderRepository;
 @Service
 public class OrderService {
 
-	
 	@Autowired
 	OrderRepository orderRepo;
-	
-	
+
 	public List<Order> findAll() {
 		return orderRepo.findAll();
 	}
-	
+
 	public Order saveOrder(Order order) {
 		return orderRepo.save(order);
 	}
-	
+
 	public void deleteOrder(String id) {
 		orderRepo.delete(id);
 	}
-	
+
 }

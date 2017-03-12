@@ -1,1 +1,8 @@
+com/whittam/ropes/repository/OrderRepository.class
+com/whittam/ropes/model/Order.class
+com/whittam/ropes/model/Inventory.class
+com/whittam/ropes/service/OrderService.class
+com/whittam/ropes/WebSocketHandler.class
+com/whittam/ropes/repository/InventoryRepository.class
 com/whittam/ropes/App.class
+com/whittam/ropes/service/InventoryService.class
