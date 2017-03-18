@@ -22,8 +22,18 @@ public class OrderService {
 		return orderRepo.save(order);
 	}
 
-	public void deleteOrder(String id) {
-		orderRepo.delete(id);
+	public void deleteOrder(Order order) {
+		orderRepo.delete(order);
+	}
+	
+	public void deleteAll() {
+		orderRepo.deleteAll();	
+	}
+	
+	public Order updateOrder(String id, String status) {
+		Order updatedOrder = orderRepo.findOne(id);
+		updatedOrder.setStatus(status);
+		return orderRepo.save(updatedOrder);
 	}
 
 }

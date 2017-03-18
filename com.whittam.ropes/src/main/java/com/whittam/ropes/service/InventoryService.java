@@ -18,12 +18,20 @@ public class InventoryService {
 		return inventoryRepo.findAll();
 	}
 
-	public Inventory saveOrder(Inventory inventory) {
+	public Inventory saveInventory(Inventory inventory) {
 		return inventoryRepo.save(inventory);
 	}
 
-	public void deleteOrder(String id) {
+	public void deleteInventory(String id) {
 		inventoryRepo.delete(id);
+	}
+	
+	public void deleteAll() {
+		inventoryRepo.deleteAll();
+	}
+
+	public void saveAll(List<Inventory> inventory) {
+		inventoryRepo.save(inventory);
 	}
 
 }

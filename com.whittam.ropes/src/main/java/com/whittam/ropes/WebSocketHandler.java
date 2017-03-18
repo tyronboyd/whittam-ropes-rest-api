@@ -1,5 +1,6 @@
 package com.whittam.ropes;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 

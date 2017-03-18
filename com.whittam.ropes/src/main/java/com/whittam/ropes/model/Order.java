@@ -10,6 +10,7 @@ public class Order {
 	private String itemId;
 	private String title;
 	private int quantity;
+	private String status;
 
 	public String getId() {
 		return id;
@@ -49,6 +50,14 @@ public class Order {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

@@ -32,16 +32,28 @@ public class InventoryController {
 	// POST method to save to mongoDB.
 
 	@RequestMapping(value = "/save/inventory", method = RequestMethod.POST)
-	public ResponseEntity<?> saveOrder(@RequestBody Inventory order) {
-		inventoryService.saveOrder(order);
+	public ResponseEntity<?> saveInventory(@RequestBody Inventory order) {
+		inventoryService.saveInventory(order);
+		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+	
+	@RequestMapping(value = "/saveAll/inventory", method = RequestMethod.POST)
+	public ResponseEntity<?> saveAllInventory(@RequestBody List<Inventory> inventory) {
+		inventoryService.saveAll(inventory);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 
 	// DELETE the entity
 
-	@RequestMapping(value = "delete/inventory/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> dleteOrder(@PathVariable String id) {
-		inventoryService.deleteOrder(id);
+	@RequestMapping(value = "/delete/inventory/", method = RequestMethod.DELETE)
+	public ResponseEntity<?> dleteInventory(@PathVariable String id) {
+		inventoryService.deleteInventory(id);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	}
+	
+	@RequestMapping(value = "/delete-all/inventory", method = RequestMethod.DELETE)
+	public ResponseEntity<?> dleteAllInventory() {
+		inventoryService.deleteAll();
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 
