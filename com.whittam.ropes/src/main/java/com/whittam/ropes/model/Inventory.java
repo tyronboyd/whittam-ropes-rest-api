@@ -29,8 +29,8 @@ public class Inventory {
 	public String getUNIQUEID() {
 		return UNIQUEID;
 	}
-	
-	public void setItemId(String UNIQUEID) {
+
+	public void setUNIQUEID(String UNIQUEID) {
 		this.UNIQUEID = UNIQUEID;
 	}
 
