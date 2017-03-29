@@ -11,6 +11,7 @@ public class Order {
 	private String title;
 	private int quantity;
 	private String status;
+	private int totalQuantity;
 
 	public String getId() {
 		return id;
@@ -18,6 +19,14 @@ public class Order {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public int getTotalQuantity() {
+		return totalQuantity;
+	}
+	
+	public void setTotalQuantity(int totalQuantity) {
+		this.totalQuantity = totalQuantity;
 	}
 	
 	public String getBarcode() {

@@ -30,9 +30,11 @@ public class OrderService {
 		orderRepo.deleteAll();	
 	}
 	
-	public Order updateOrder(String id, String status) {
+	public Order updateOrder(String id, String status, int quantity, int totalQuantity) {
 		Order updatedOrder = orderRepo.findOne(id);
 		updatedOrder.setStatus(status);
+		updatedOrder.setTotalQuantity(totalQuantity);
+		updatedOrder.setQuantity(quantity);
 		return orderRepo.save(updatedOrder);
 	}
 

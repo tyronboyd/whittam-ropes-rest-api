@@ -23,7 +23,7 @@ public class OrderController {
 
 	@Autowired
 	private OrderService orderService;
-	
+
 	@Autowired
 	private WebSocketHandler socketHandler;
 
@@ -39,12 +39,12 @@ public class OrderController {
 		socketHandler.counterIncrementedCallback();
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
-	
-	
+
 	// POST method to save to mongoDB.
 	@RequestMapping(value = "/update/order", method = RequestMethod.PUT)
-	public ResponseEntity<?> updateOrder(@RequestParam String id, @RequestParam String status) {
-		orderService.updateOrder(id, status);
+	public ResponseEntity<?> updateOrder(@RequestParam String id, @RequestParam String status,
+			@RequestParam int quantity, @RequestParam int totalQuantity) {
+		orderService.updateOrder(id, status, quantity, totalQuantity);
 		socketHandler.counterIncrementedCallback();
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
@@ -58,13 +58,12 @@ public class OrderController {
 		socketHandler.counterIncrementedCallback();
 		return new ResponseEntity<>(null, httpHeaders, HttpStatus.ACCEPTED);
 	}
-	
+
 	@RequestMapping(value = "/delete-all/orders", method = RequestMethod.DELETE)
 	public ResponseEntity<?> dleteAllOrders() {
 		orderService.deleteAll();
 		socketHandler.counterIncrementedCallback();
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
-
 
 }
