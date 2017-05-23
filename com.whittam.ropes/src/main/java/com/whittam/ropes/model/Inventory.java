@@ -7,7 +7,7 @@ public class Inventory {
 	@Id
 	private String id;
 	private String BARCODE;
-	private String UNIQUEID;
+	private String ACCOUNTNO;
 	private String TITLE;
 
 	public String getId() {
@@ -26,12 +26,12 @@ public class Inventory {
 		this.BARCODE = BARCODE;
 	}
 	
-	public String getUNIQUEID() {
-		return UNIQUEID;
+	public String getACCOUNTNO() {
+		return ACCOUNTNO;
 	}
 
-	public void setUNIQUEID(String UNIQUEID) {
-		this.UNIQUEID = UNIQUEID;
+	public void setACCOUNTNO(String ACCOUNTNO) {
+		this.ACCOUNTNO = ACCOUNTNO;
 	}
 
 	public String getTITLE() {
