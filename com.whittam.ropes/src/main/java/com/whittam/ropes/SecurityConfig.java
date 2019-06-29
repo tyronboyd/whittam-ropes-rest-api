@@ -25,14 +25,10 @@ public class SecurityConfig extends GenericFilterBean {
         HttpServletRequest httpServletRequest = (HttpServletRequest)request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
-        if(!httpServletResponse.getHeaderNames().contains("Access-Control-Allow-Origin")) {
-            httpServletResponse.addHeader("Access-Control-Allow-Origin", "*");
-        }
-
-        String headers= httpServletRequest.getHeader("Access-Control-Request-Headers");
-        if(!httpServletResponse.getHeaderNames().contains("Access-Control-Allow-Headers") && StringUtils.isNotBlank(headers)) {
-            httpServletResponse.addHeader("Access-Control-Allow-Headers", headers);
-        }
+        httpServletResponse.setHeader("Access-Control-Allow-Origin", "*");
+        httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
+        httpServletResponse.setHeader("Access-Control-Allow-Methods", "POST, GET, HEAD, OPTIONS");
+        httpServletResponse.setHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
         chain.doFilter(request, response);
     }
 }
