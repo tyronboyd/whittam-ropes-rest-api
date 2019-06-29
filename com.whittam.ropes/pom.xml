@@ -93,7 +93,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-	<finalName>whittam-ropes</finalName>
+		<finalName>whittam-ropes</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -17,7 +17,6 @@ import com.whittam.ropes.WebSocketHandler;
 import com.whittam.ropes.model.Order;
 import com.whittam.ropes.service.OrderService;
 
-@CrossOrigin(origins = "http://evil.com/")
 @RestController
 public class OrderController {
 
@@ -52,7 +51,7 @@ public class OrderController {
 	// DELETE the entity
 
 	@RequestMapping(value = "/delete/order", method = RequestMethod.DELETE)
-	public ResponseEntity<?> dleteOrder(@RequestBody Order order) {
+	public ResponseEntity<?> deleteOrder(@RequestBody Order order) {
 		HttpHeaders httpHeaders = new HttpHeaders();
 		orderService.deleteOrder(order);
 		socketHandler.counterIncrementedCallback();
@@ -60,7 +59,7 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = "/delete-all/orders", method = RequestMethod.DELETE)
-	public ResponseEntity<?> dleteAllOrders() {
+	public ResponseEntity<?> deleteAllOrders() {
 		orderService.deleteAll();
 		socketHandler.counterIncrementedCallback();
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);

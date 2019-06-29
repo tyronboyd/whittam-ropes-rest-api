@@ -1,5 +1,6 @@
 package com.whittam.ropes.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.whittam.ropes.model.Inventory;
 import com.whittam.ropes.service.InventoryService;
 
-@CrossOrigin(origins = "http://evil.com/")
 @RestController
 public class InventoryController {
 
@@ -25,8 +25,13 @@ public class InventoryController {
 	// Returns the whole list of inventory
 
 	@RequestMapping(value = "/inventory", method = RequestMethod.GET)
-	public List<Inventory> getAll() {
-		return inventoryService.findAll();
+	public ResponseEntity<List<Inventory>> getAll() {
+		List<Inventory> inventory = inventoryService.findAll();
+
+		if (inventory.isEmpty()) {
+			return new ResponseEntity<List<Inventory>>(new ArrayList<>(), HttpStatus.OK);
+		}
+		return new ResponseEntity<List<Inventory>>(inventory, HttpStatus.OK);
 	}
 
 	// POST method to save to mongoDB.
@@ -46,13 +51,13 @@ public class InventoryController {
 	// DELETE the entity
 
 	@RequestMapping(value = "/delete/inventory/", method = RequestMethod.DELETE)
-	public ResponseEntity<?> dleteInventory(@PathVariable String id) {
+	public ResponseEntity<?> deleteInventory(@PathVariable String id) {
 		inventoryService.deleteInventory(id);
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 	
 	@RequestMapping(value = "/delete-all/inventory", method = RequestMethod.DELETE)
-	public ResponseEntity<?> dleteAllInventory() {
+	public ResponseEntity<?> deleteAllInventory() {
 		inventoryService.deleteAll();
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
