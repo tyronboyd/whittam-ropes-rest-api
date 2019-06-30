@@ -13,8 +13,8 @@ public class Makeup {
     @Id
     private String id;
     private String ref;
-    private Integer size;
-    private String colour;
+    private String description;
+    private String customer;
     private String winder;
     private String inMetres;
     private String endsOne;
@@ -52,20 +52,20 @@ public class Makeup {
         this.ref = ref;
     }
 
-    public Integer getSize() {
-        return size;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSize(Integer size) {
-        this.size = size;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getColour() {
-        return colour;
+    public String getCustomer() {
+        return customer;
     }
 
-    public void setColour(String colour) {
-        this.colour = colour;
+    public void setCustomer(String customer) {
+        this.customer = customer;
     }
 
     public String getWinder() {
